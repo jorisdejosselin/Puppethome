@@ -1,0 +1,4 @@
+---
+classes:
+ - profile::base::base_linux
+ - role::docker::docker_manager

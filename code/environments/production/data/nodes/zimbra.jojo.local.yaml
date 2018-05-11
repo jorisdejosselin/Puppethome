@@ -1,0 +1,4 @@
+---
+classes:
+    - profile::base::base_linux
+    - profile::zimbra::zimbra_base
