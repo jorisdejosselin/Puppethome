@@ -1,3 +1,3 @@
 ---
 classes:
-    - profile::base::base_linux
+  - role::base::base_linux

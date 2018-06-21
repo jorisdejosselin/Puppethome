@@ -1,3 +1,4 @@
+# add printer of my home
 class role::docker::docker_worker {
 	if $::facts['kernel'] == 'linux' {
 		include profile::base::base_linux

@@ -1,7 +1,7 @@
 class profile::base::base_linux (
 	$pack_RHEL			=	lookup('profile::base::base_linux::pack_RHEL', {value_type	=>	Tuple,	default_value	=>	['nano','vim','epel-release']}),
-	$pack_RHEL_after	=	lookup('profile::base::base_linux::pack_RHEL', {value_type	=>	Tuple,	default_value	=>	['htop','python','cifs-utils','nfs-utils','sshpass']}),
-	$pack_DEB			=	lookup('profile::base::base_linux::pack_DEB', {value_type	=>	Tuple,	default_value	=>	['vim','nano','openssh-server','python','cifs-utils','sshpass']}),
+	$pack_RHEL_after	=	lookup('profile::base::base_linux::pack_RHEL', {value_type	=>	Tuple,	default_value	=>	['htop','python','cifs-utils','nfs-utils','sshpass','git']}),
+	$pack_DEB			=	lookup('profile::base::base_linux::pack_DEB', {value_type	=>	Tuple,	default_value	=>	['vim','nano','openssh-server','python','cifs-utils','sshpass','git']}),
 	){
 	file { '/usr/bin/puppet':
 		ensure	=>	link,

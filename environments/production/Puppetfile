@@ -1,9 +1,28 @@
-mod 'eveliovila-zimbra', '0.0.1'
-mod 'puppet-archive', '3.0.0'
-mod 'puppetlabs-firewall', '1.12.0'
-mod 'puppet-nginx', '0.11.0'
-mod 'puppetlabs-apt', '4.5.1'
-mod 'trlinkin-noop', '1.0.0'
-mod 'puppetlabs-image_build', '0.7.0'
-mod 'geoffwilliams-mount_windows_smb', '0.1.0'
-mod 'puppet-openvpn', '7.2.0'
+mod 'puppet-archive',
+  :git => 'https://github.com/voxpupuli/puppet-archive.git'
+mod 'puppetlabs-firewall',
+  :git => 'https://github.com/puppetlabs/puppetlabs-firewall.git'
+mod 'puppet-nginx',
+  :git => 'https://github.com/voxpupuli/puppet-nginx.git'
+mod 'puppetlabs-apt',
+  :git => 'https://github.com/puppetlabs/puppetlabs-apt.git'
+mod 'trlinkin-noop',
+  :git => 'https://github.com/trlinkin/trlinkin-noop.git'
+mod 'geoffwilliams-mount_windows_smb',
+  :git => 'https://github.com/GeoffWilliams/puppet-mount_windows_smb.git'
+mod 'puppet-openvpn',
+  :git => 'https://github.com/voxpupuli/puppet-openvpn.git'
+mod 'puppet-letsencrypt',
+  :git => 'https://github.com/voxpupuli/puppet-letsencrypt.git'
+
+mod 'chocolatey-chocolatey',
+#^This special motherfucker^#
+
+mod 'puppet-mongodb',
+  :git => 'https://github.com/voxpupuli/puppet-mongodb.git'
+mod 'puppetlabs-openstack',
+  :git => 'https://github.com/puppetlabs/puppetlabs-openstack.git'
+mod 'puppetlabs-windows',
+  :git => 'https://github.com/puppetlabs/puppetlabs-windows.git'
+mod 'denver-netdata',
+  :git => 'https://github.com/dmcanally/denver-netdata.git'
