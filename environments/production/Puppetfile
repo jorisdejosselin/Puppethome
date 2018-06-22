@@ -14,7 +14,7 @@ mod 'puppet-openvpn',
   :git => 'git@github.com:jorisdejosselin/puppet-openvpn.git'
 mod 'puppet-letsencrypt',
   :git => 'git@github.com:jorisdejosselin/puppet-letsencrypt.git'
-mod 'chocolatey',
+mod 'puppetlabs-chocolatey', '3.0.0'
 #  :git => 'git@github.com:jorisdejosselin/puppetlabs-chocolatey.git'
 mod 'puppet-mongodb',
   :git => 'git@github.com:jorisdejosselin/puppet-mongodb.git'
