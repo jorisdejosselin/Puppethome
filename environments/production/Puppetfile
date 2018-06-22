@@ -1,28 +1,26 @@
 mod 'puppet-archive',
-  :git => 'https://github.com/voxpupuli/puppet-archive.git'
+  :git => 'git@github.com:voxpupuli/puppet-archive.git'
 mod 'puppetlabs-firewall',
-  :git => 'https://github.com/puppetlabs/puppetlabs-firewall.git'
+  :git => 'git@github.com:puppetlabs/puppetlabs-firewall.git'
 mod 'puppet-nginx',
-  :git => 'https://github.com/voxpupuli/puppet-nginx.git'
+  :git => 'git@github.com:voxpupuli/puppet-nginx.git'
 mod 'puppetlabs-apt',
-  :git => 'https://github.com/puppetlabs/puppetlabs-apt.git'
+  :git => 'git@github.com:puppetlabs/puppetlabs-apt.git'
 mod 'trlinkin-noop',
-  :git => 'https://github.com/trlinkin/trlinkin-noop.git'
+  :git => 'git@github.com:trlinkin/trlinkin-noop.git'
 mod 'geoffwilliams-mount_windows_smb',
-  :git => 'https://github.com/GeoffWilliams/puppet-mount_windows_smb.git'
+  :git => 'git@github.com:GeoffWilliams/puppet-mount_windows_smb.git'
 mod 'puppet-openvpn',
-  :git => 'https://github.com/voxpupuli/puppet-openvpn.git'
+  :git => 'git@github.com:voxpupuli/puppet-openvpn.git'
 mod 'puppet-letsencrypt',
-  :git => 'https://github.com/voxpupuli/puppet-letsencrypt.git'
-
-mod 'chocolatey-chocolatey',
-#^This special motherfucker^#
-
+  :git => 'git@github.com:voxpupuli/puppet-letsencrypt.git'
+mod 'chocolatey',
+  :git => 'git@github.com:puppetlabs/puppetlabs-chocolatey.git'
 mod 'puppet-mongodb',
-  :git => 'https://github.com/voxpupuli/puppet-mongodb.git'
+  :git => 'git@github.com:voxpupuli/puppet-mongodb.git'
 mod 'puppetlabs-openstack',
-  :git => 'https://github.com/puppetlabs/puppetlabs-openstack.git'
+  :git => 'git@github.com:puppetlabs/puppetlabs-openstack.git'
 mod 'puppetlabs-windows',
-  :git => 'https://github.com/puppetlabs/puppetlabs-windows.git'
+  :git => 'git@github.com:puppetlabs/puppetlabs-windows.git'
 mod 'denver-netdata',
-  :git => 'https://github.com/dmcanally/denver-netdata.git'
+  :git => 'git@github.com:dmcanally/denver-netdata.git'
