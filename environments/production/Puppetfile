@@ -1,26 +1,14 @@
-mod 'puppet-archive',
-  :git => 'git@github.com:jorisdejosselin/puppet-archive.git'
-mod 'puppetlabs-firewall',
-  :git => 'git@github.com:jorisdejosselin/puppetlabs-firewall.git'
-mod 'puppet-nginx',
-  :git => 'git@github.com:jorisdejosselin/puppet-nginx.git'
-mod 'puppetlabs-apt',
-  :git => 'git@github.com:jorisdejosselin/puppetlabs-apt.git'
-mod 'trlinkin-noop',
-  :git => 'git@github.com:jorisdejosselin/trlinkin-noop.git'
-mod 'geoffwilliams-mount_windows_smb',
-  :git => 'git@github.com:jorisdejosselin/puppet-mount_windows_smb.git'
-mod 'puppet-openvpn',
-  :git => 'git@github.com:jorisdejosselin/puppet-openvpn.git'
-mod 'puppet-letsencrypt',
-  :git => 'git@github.com:jorisdejosselin/puppet-letsencrypt.git'
+mod 'puppet-archive'
+mod 'puppetlabs-firewall'
+mod 'puppet-nginx', '0.12.0'
+mod 'puppetlabs-apt'
+mod 'trlinkin-noop'
+mod 'geoffwilliams-mount_windows_smb'
+mod 'puppet-openvpn'
+mod 'puppet-letsencrypt', '2.4.0'
 mod 'puppetlabs-chocolatey', '3.0.0'
-#  :git => 'git@github.com:jorisdejosselin/puppetlabs-chocolatey.git'
-mod 'puppet-mongodb',
-  :git => 'git@github.com:jorisdejosselin/puppet-mongodb.git'
-mod 'puppetlabs-openstack',
-  :git => 'git@github.com:jorisdejosselin/puppetlabs-openstack.git'
-mod 'puppetlabs-windows',
-  :git => 'git@github.com:jorisdejosselin/puppetlabs-windows.git'
-mod 'denver-netdata',
-  :git => 'git@github.com:jorisdejosselin/denver-netdata.git'
+mod 'puppet-mongodb'
+mod 'puppetlabs-openstack'
+mod 'puppetlabs-windows'
+mod 'denver-netdata', '0.1.7'
+mod 'zleslie-pxe', '0.2.0'

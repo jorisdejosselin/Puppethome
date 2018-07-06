@@ -40,11 +40,11 @@ class profile::base::base_linux (
 		content =>  "user=puppet\npass=Test2018!\ndomain=alien\n",
 	}
 	if $facts[os][family] == 'Redhat' {
-		Package { $pack_RHEL:
+		package { $pack_RHEL:
 			ensure		=>	present,
 			provider	=>	'yum',
 		} ->
-		Package { $pack_RHEL_after:
+		package { $pack_RHEL_after:
 			ensure		=>	present,
 			provider	=>	'yum',
 		} ~>

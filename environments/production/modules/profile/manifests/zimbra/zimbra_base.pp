@@ -9,9 +9,9 @@ class profile::zimbra::zimbra_base {
          proto  => tcp,
          action => accept,
         }
-		 firewall { '100 accept admin console access':
+     firewall { '100 accept admin console access':
          dport  => [7071],
          proto  => tcp,
          action => accept,
-		}
+    }
 }

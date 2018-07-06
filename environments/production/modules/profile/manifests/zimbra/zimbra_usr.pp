@@ -1,7 +1,7 @@
 class profile::zimbra::zimbra_usr (
-		$domain = jorisdejosselindejong.nl
-	){
-	puppet resource zimbra_user domain=$domain
+    $domain = jorisdejosselindejong.nl
+  ){
+  puppet resource zimbra_user domain=$domain
     zimbra_user {
         'joris':
             ensure       => present,

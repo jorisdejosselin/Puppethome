@@ -1,7 +1,7 @@
 class profile::mongodb::mongodb_server (
-	){
-	class {'mongodb::server':
-		port    => 27018,
-		verbose => true,
-	}
+  ){
+  class {'mongodb::server':
+    port    => 27018,
+    verbose => true,
+  }
 }
