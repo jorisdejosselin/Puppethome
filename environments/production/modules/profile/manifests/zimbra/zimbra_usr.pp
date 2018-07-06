@@ -1,3 +1,4 @@
+# documented
 class profile::zimbra::zimbra_usr (
     $domain = jorisdejosselindejong.nl
   ){

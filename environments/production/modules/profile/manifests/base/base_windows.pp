@@ -5,6 +5,6 @@ class profile::base::base_windows (
   }
   -> package { $pack_windows:
     ensure   => latest,
-    provider  => chocolatey
+    provider => chocolatey
   }
 }
