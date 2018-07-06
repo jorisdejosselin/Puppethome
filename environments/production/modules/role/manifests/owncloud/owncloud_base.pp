@@ -1,8 +1,4 @@
 class role::owncloud::owncloud_base {
-        firewall { '100 allow http and https access':
-			dport  => [80, 443],
-			proto  => tcp,
-			action => accept,
-        }
-
+  include profile::owncloud::owncloud_base
+  include profile::base::base_linux
 }

@@ -2,10 +2,10 @@ class profile::zimbra::zimbra_install (
   $domain = 'jorisdejosselindejong.nl'
   ){
   file { '/home/joris/Downloads/zimbra_install.tgz':
-    ensure  =>  present,
+    ensure =>  present,
     owner  =>  'joris',
     group  =>  'joris',
-    source  =>  'puppet:///modules/zimbra/zcs-8.8.8_GA_2009.UBUNTU16_64.20180322150747.tgz',
+    source =>  'puppet:///modules/zimbra/zcs-8.8.8_GA_2009.UBUNTU16_64.20180322150747.tgz',
     }
   archive { '/home/joris/Downloads/zimbra_installed':
     ensure        => present,

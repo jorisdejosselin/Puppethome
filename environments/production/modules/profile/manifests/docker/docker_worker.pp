@@ -17,7 +17,7 @@ class profile::docker::docker_worker (
   include 'docker'
   docker::swarm {'cluster_worker':
     join           => true,
-    advertise_addr  => $ipaddress,
+    advertise_addr => $ipaddress,
     listen_addr    => $ipaddress,
     manager_ip     => $ipaddress_man,
     token          => $token,
