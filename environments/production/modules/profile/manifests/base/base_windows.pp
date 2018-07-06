@@ -1,5 +1,5 @@
 class profile::base::base_windows (
-  $pack_windows      =  lookup('profile::base::base_windows::pack_windows', {value_type  =>  Tuple,  default_value  =>  ['notepadplusplus','puppet-agent','qbittorrent','winscp','chocolatey','putty','open-ssh']}),
+  $pack_windows      =  lookup('profile::base::base_windows::pack_windows', {value_type  =>  Tuple,  default_value  =>  ['notepadplusplus','puppet-agent','qbittorrent','winscp','chocolatey','putty','curl']}),
   ){
   class {'chocolatey':
   }
