@@ -1,10 +1,10 @@
 # a comment
 class profile::openvpn::openvpn_server {
-        firewall { '100 allow openvpn access':
+    firewall { '100 allow openvpn access':
       dport  => [1194],
       proto  => udp,
       action => accept,
-        }
+    }
     openvpn::server { 'openvpn_server':
       country      => 'NL',
       province     => 'UT',
