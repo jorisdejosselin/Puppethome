@@ -6,8 +6,8 @@ class profile::nginx::nginx_base {
       action => accept,
         }
     class{'nginx':
-      manage_repo   => true,
-      package_source   => 'nginx-mainline'
+      manage_repo    => true,
+      package_source => 'nginx-mainline'
     }
     class { ::letsencrypt:
       email => 'j.j.dejosselindejong@gmail.com',
@@ -26,5 +26,9 @@ class profile::nginx::nginx_base {
     nginx::resource::server { 'test2.jorisdejosselindejong.nl':
       listen_port => 80,
       proxy       => 'http://localhost:60000',
+    }
+    service { 'phpscript':
+      ensure => running,
+      start  => "/usr/bin/php CheckWAN.php"
     }
 }
