@@ -31,7 +31,7 @@ class profile::nginx::nginx_base {
       mode    => '0644',
       owner   => 'root',
       group   => 'root',
-      content => template('nginx/updateip.erb'),
+      content => template('profile/nginx/updateip.erb'),
     }
     exec { 'myservice-systemd-reload':
       command     => 'systemctl daemon-reload',
