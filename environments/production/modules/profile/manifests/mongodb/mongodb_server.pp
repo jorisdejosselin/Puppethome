@@ -1,7 +1,7 @@
 # documented
 class profile::mongodb::mongodb_server (
   ){
-  class {'mongodb::server':
+  class {'mongodb::client':} -> class {'mongodb::server':
     port    => 27018,
     verbose => true,
   } ~> mongodb::db { 'keystone':
