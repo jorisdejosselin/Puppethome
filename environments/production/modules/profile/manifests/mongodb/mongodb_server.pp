@@ -6,6 +6,6 @@ class profile::mongodb::mongodb_server (
     verbose => true,
   } ~> mongodb::db { 'keystone':
       user          => 'joris',
-      password_hash => '$1$0lJe/czZ$Q8yusK/6MFexkgryduKD.1',
+      password_hash => '0b5c29832d4a421fe29295bd99ff1379',
     }
 }
