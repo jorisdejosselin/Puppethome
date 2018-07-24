@@ -13,12 +13,17 @@ class profile::mongodb::mongodb_server (
     proto  => tcp,
     action => accept,
   }
-  firewall { '002 Allow inbound Mongo':
+  firewall { '002 Allow inbound SSH':
+    dport  => 22,
+    proto  => udp,
+    action => accept,
+  }
+  firewall { '003 Allow inbound Mongo':
     dport  => 27018,
     proto  => tcp,
     action => accept,
   }
-  firewall { '003 Allow inbound Mongo':
+  firewall { '004 Allow inbound Mongo':
     dport  => 27018,
     proto  => udp,
     action => accept,
