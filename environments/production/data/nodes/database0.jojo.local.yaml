@@ -1,0 +1,3 @@
+---
+classes:
+ - role::mongodb::mongodb_server
