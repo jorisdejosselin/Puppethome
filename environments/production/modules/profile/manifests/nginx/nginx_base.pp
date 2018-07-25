@@ -27,20 +27,4 @@ class profile::nginx::nginx_base {
       listen_port => 80,
       proxy       => 'http://localhost:60000',
     }
-    file { '/lib/systemd/system/phpscript.service':
-      mode    => '0644',
-      owner   => 'root',
-      group   => 'root',
-      content => template('profile/nginx/updateip.erb'),
-    }
-    exec { 'myservice-systemd-reload':
-      command     => 'systemctl daemon-reload',
-      path        => [ '/usr/bin', '/bin', '/usr/sbin' ],
-      refreshonly => true,
-      require     => File['/lib/systemd/system/phpscript.service'],
-    }
-    service { 'phpscript':
-      ensure  => running,
-      require => Exec['myservice-systemd-reload'],
-    }
 }

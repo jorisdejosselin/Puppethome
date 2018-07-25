@@ -1,5 +1,4 @@
 ---
 classes:
-    - profile::base::base_linux
-    - role::nginx::nginx_base
+    - role::nginx
     - role::netdata::netdata_master
