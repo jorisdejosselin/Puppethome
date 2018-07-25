@@ -1,4 +1,5 @@
 ---
 classes:
-    - role::nginx
+    - role::nginx::nginx_base
+    - role::nginx::nginx_ddns
     - role::netdata::netdata_master
