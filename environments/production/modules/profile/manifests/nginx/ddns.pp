@@ -3,8 +3,9 @@
 #
 class profile::nginx::ddns {
     file { '/home/scripts/transip/lib':
-      ensure => 'directory',
-      source => '/mnt/data/scripts/transip/lib/',
+      ensure  => 'directory',
+      recurse => true,
+      source  => '/mnt/data/scripts/transip/lib/',
     }
     file { '/lib/systemd/system/phpscript.service':
       mode    => '0644',
