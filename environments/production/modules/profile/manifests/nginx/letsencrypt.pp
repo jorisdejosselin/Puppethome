@@ -10,7 +10,7 @@ class profile::nginx::letsencrypt {
     owner   => root,
     group   => root,
     mode    => '0644',
-    content => 'user=certbot\npass=Test2018!\n',
+    content => 'user=certbot\npass=Test2018!',
   }
   mount {'/mnt/nginx':
     ensure  => 'mounted',
