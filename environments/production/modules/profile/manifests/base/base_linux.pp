@@ -12,6 +12,10 @@ class profile::base::base_linux (
     ensure =>  link,
     target =>  '/opt/puppetlabs/bin/puppet',
   }
+  file { '/usr/bin/r10k':
+    ensure =>  link,
+    target =>  '/opt/puppetlabs/bin/r10k',
+  }
   file { '/usr/bin/facter':
     ensure =>  link,
     target =>  '/opt/puppetlabs/bin/facter',
