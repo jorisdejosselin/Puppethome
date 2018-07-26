@@ -6,6 +6,8 @@ class profile::base::base_linux (
   ){
   #for creating a dir with scripts
   exec { 'export PATH=${PATH}:/opt/puppetlabs/puppet/bin':
+    path     => '/usr/bin:/usr/sbin:/bin',
+    provider => shell,
   }
   file {'/mnt/data':
     ensure => 'directory',
