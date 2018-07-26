@@ -5,8 +5,7 @@ class profile::base::base_linux (
   $pack_deb      =  lookup('profile::base::base_linux::pack_DEB', {value_type  =>  Tuple,  default_value  =>  ['vim','nano','openssh-server','python','cifs-utils','sshpass','git','iptables-persistent']}),
   ){
   #for creating a dir with scripts
-  exec { 'addpuppetbin':
-    command => 'export PATH=${PATH}:/opt/puppetlabs/puppet/bin',
+  exec { 'export PATH=${PATH}:/opt/puppetlabs/puppet/bin':
   }
   file {'/mnt/data':
     ensure => 'directory',
