@@ -16,8 +16,8 @@ class profile::nginx::letsencrypt {
     ensure  => 'mounted',
     device  => '//192.168.178.1/nginx',
     atboot  => true,
-    fstype  => 'nfs',
-    options => 'auto,credentials=/securedir/.sambacredentialsfile',
+    fstype  => 'cifs',
+    options => 'auto,credentials=/securedir/.sambacredentialsfilenginx',
     require => [File['/securedir/.sambacredentialsfilenginx'],File['/mnt/nginx']]
   }
   letsencrypt::certonly{ 'domains':
