@@ -5,13 +5,7 @@ class profile::nginx::letsencrypt {
   file {'/mnt/nginx':
     ensure => 'directory',
   }
-  file {'/securedir/':
-    ensure => 'directory',
-    owner  => root,
-    group  => root,
-    mode   => '0644',
-  }
-  file { '/securedir/.sambacredentialsfile':
+  file { '/securedir/.sambacredentialsfilenginx':
     ensure  => present,
     owner   => root,
     group   => root,
@@ -24,7 +18,7 @@ class profile::nginx::letsencrypt {
     atboot  => true,
     fstype  => 'nfs',
     options => 'auto,credentials=/securedir/.sambacredentialsfile',
-    require => [File['/securedir/.sambacredentialsfile'],File['/mnt/data']]
+    require => [File['/securedir/.sambacredentialsfilenginx'],File['/mnt/data']]
   }
   letsencrypt::certonly{ 'domains':
     domains              => ['router.joict.nl', 'mail.jorisdejosselindejong.nl'],
