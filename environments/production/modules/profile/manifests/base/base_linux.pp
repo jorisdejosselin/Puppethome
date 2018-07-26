@@ -8,13 +8,12 @@ class profile::base::base_linux (
   file { '/home/scripts':
     ensure =>  'directory',
   }
+  file { '/etc/environment':
+    content => inline_template('PUPPET=/opt/puppetlabs/puppet/bin')
+  }
   file { '/usr/bin/puppet':
     ensure =>  link,
     target =>  '/opt/puppetlabs/bin/puppet',
-  }
-  file { '/usr/bin/r10k':
-    ensure =>  link,
-    target =>  '/opt/puppetlabs/bin/r10k',
   }
   file { '/usr/bin/facter':
     ensure =>  link,
