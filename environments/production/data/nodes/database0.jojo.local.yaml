@@ -1,3 +1,4 @@
 ---
 classes:
  - role::mongodb::mongodb_server
+ - role::mysql::mysql_server

@@ -5,31 +5,8 @@ class profile::base::base_linux (
   $pack_deb      =  lookup('profile::base::base_linux::pack_DEB', {value_type  =>  Tuple,  default_value  =>  ['vim','nano','openssh-server','python','cifs-utils','sshpass','git','iptables-persistent']}),
   ){
   #for creating a dir with scripts
-  file { '/home/scripts':
-    ensure =>  'directory',
-  }
-  file { '/etc/environment':
-    content => inline_template('PUPPET=/opt/puppetlabs/puppet/bin')
-  }
-  file { '/usr/bin/puppet':
-    ensure =>  link,
-    target =>  '/opt/puppetlabs/bin/puppet',
-  }
-  file { '/usr/bin/facter':
-    ensure =>  link,
-    target =>  '/opt/puppetlabs/bin/facter',
-  }
-  file { '/usr/bin/mco':
-    ensure =>  link,
-    target =>  '/opt/puppetlabs/bin/mco',
-  }
-  file { '/usr/bin/hiera':
-    ensure =>  link,
-    target =>  '/opt/puppetlabs/bin/hiera',
-  }
-  file { '/usr/bin/ruby':
-    ensure =>  link,
-    target =>  '/opt/puppetlabs/puppet/bin/ruby',
+  exec {
+    command => 'export PATH=${PATH}:/opt/puppetlabs/puppet/bin',
   }
   file {'/mnt/data':
     ensure => 'directory',
