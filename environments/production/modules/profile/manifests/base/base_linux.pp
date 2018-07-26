@@ -2,7 +2,7 @@
 class profile::base::base_linux (
   $pack_rhel      =  lookup('profile::base::base_linux::pack_rhel', {value_type  =>  Tuple,  default_value  =>  ['nano','vim','epel-release']}),
   $pack_rhel_after  =  lookup('profile::base::base_linux::pack_rhel', {value_type  =>  Tuple,  default_value  =>  ['htop','python','cifs-utils','nfs-utils','sshpass','git','iptables-services']}),
-  $pack_deb      =  lookup('profile::base::base_linux::pack_DEB', {value_type  =>  Tuple,  default_value  =>  ['vim','nano','openssh-server','python','cifs-utils','nfs-utils','sshpass','git','iptables-persistent']}),
+  $pack_deb      =  lookup('profile::base::base_linux::pack_DEB', {value_type  =>  Tuple,  default_value  =>  ['vim','nano','openssh-server','python','cifs-utils','nfs-common','sshpass','git','iptables-persistent']}),
   ){
   #for creating a dir with scripts
   exec { 'export PATH=${PATH}:/opt/puppetlabs/puppet/bin':
