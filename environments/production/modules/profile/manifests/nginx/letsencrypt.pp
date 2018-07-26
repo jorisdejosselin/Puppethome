@@ -2,24 +2,24 @@
 #
 #
 class profile::nginx::letsencrypt {
-  file {'/mnt/nginx':
-    ensure => 'directory',
-  }
-  file { '/securedir/.sambacredentialsfilenginx':
-    ensure  => present,
-    owner   => root,
-    group   => root,
-    mode    => '0644',
-    content => 'username=certbot\npassword=Test2018!',
-  }
-  mount {'/mnt/nginx':
-    ensure  => 'mounted',
-    device  => '//192.168.178.1/nginx',
-    atboot  => true,
-    fstype  => 'cifs',
-    options => 'auto,credentials=/securedir/.sambacredentialsfilenginx',
-    require => [File['/securedir/.sambacredentialsfilenginx'],File['/mnt/nginx']]
-  }
+  # file {'/mnt/nginx':
+  #   ensure => 'directory',
+  # }
+  # file { '/securedir/.sambacredentialsfilenginx':
+  #   ensure  => present,
+  #   owner   => root,
+  #   group   => root,
+  #   mode    => '0644',
+  #   content => 'username=certbot\npassword=Test2018!\ndomain=WORKGROUP',
+  # }
+  # mount {'/mnt/nginx':
+  #   ensure  => 'mounted',
+  #   device  => '//192.168.178.1/nginx',
+  #   atboot  => true,
+  #   fstype  => 'cifs',
+  #   options => 'auto,credentials=/securedir/.sambacredentialsfilenginx',
+  #   require => [File['/securedir/.sambacredentialsfilenginx'],File['/mnt/nginx']]
+  # }
   letsencrypt::certonly{ 'domains':
     domains              => ['router.joict.nl', 'mail.jorisdejosselindejong.nl'],
     manage_cron          => false,
