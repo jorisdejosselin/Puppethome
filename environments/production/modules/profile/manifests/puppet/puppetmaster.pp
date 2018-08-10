@@ -30,7 +30,7 @@ class profile::puppet::puppetmaster (
   firewall { '999 drop all other requests':
     action => 'drop',
   }
-  file { '/etc/systemd/system/deploytest.service':
+  file { '/etc/systemd/system/deploy.service':
       mode    => '0644',
       owner   => 'root',
       group   => 'root',
@@ -52,6 +52,10 @@ class profile::puppet::puppetmaster (
       command     => 'systemctl daemon-reload',
       path        => [ '/usr/bin', '/bin', '/usr/sbin' ],
       refreshonly => true,
-      require     => [ File['/etc/systemd/system/deploytest.service'], File['/home/admin/scripts/deployment/deploy.sh'] , File['/home/admin/scripts/deployment/__main__.py'] ]
+      require     => [ File['/etc/systemd/system/deploy.service'], File['/home/admin/scripts/deployment/deploy.sh'] , File['/home/admin/scripts/deployment/__main__.py'] ]
+    }
+  service { 'deploy':
+      ensure  => running,
+      require => Exec['myservice-systemd-reload'],
     }
 }
