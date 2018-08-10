@@ -52,6 +52,6 @@ class profile::puppet::puppetmaster (
       command     => 'systemctl daemon-reload',
       path        => [ '/usr/bin', '/bin', '/usr/sbin' ],
       refreshonly => true,
-      require     => [ File['/etc/systemd/system/deploy.service'], File['/home/admin/scripts/deployment/deploy.sh'] , File['/home/admin/scripts/deployment/__main__.py'] ]
+      require     => [ File['/etc/systemd/system/deploytest.service'], File['/home/admin/scripts/deployment/deploy.sh'] , File['/home/admin/scripts/deployment/__main__.py'] ]
     }
 }
