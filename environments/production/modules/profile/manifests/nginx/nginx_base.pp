@@ -19,12 +19,4 @@ class profile::nginx::nginx_base {
       cron_success_command => 'systemctl restart nginx',
       suppress_cron_output => true,
     }
-    nginx::resource::server { 'test.jorisdejosselindejong.nl':
-      listen_port => 80,
-      proxy       => 'http://localhost:3000',
-    }
-    nginx::resource::server { 'test2.jorisdejosselindejong.nl':
-      listen_port => 80,
-      proxy       => 'http://localhost:60000',
-    }
 }

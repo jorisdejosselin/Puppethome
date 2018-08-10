@@ -5,6 +5,13 @@ def interfaces
   Facter.value(:interfaces).split(',')
 end
 
+Facter.add(:docker_token) do
+  confine :kernel  => :linux
+  setcode do
+      Facter::docker::Resolution.exec("/bin/bash/docker swarm join-token worker -q")
+  end
+end
+
 Facter.add(:docker_client_version) do
   setcode do
     docker_version = Facter.value(:docker_version)
