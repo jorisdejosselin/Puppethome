@@ -15,7 +15,7 @@ def hooks():
                 branch_data1 = req_data['ref']
                 if branch_data1 == "refs/heads/master":
                     print("This is a Push from master, deploying application", file=sys.stderr)
-                    os.system("sh /home/admin/scripts/deployment/deploy.sh")
+                    os.system("sh <%= @dirsh %>")
         return '', 200
     else:
         abort(400)

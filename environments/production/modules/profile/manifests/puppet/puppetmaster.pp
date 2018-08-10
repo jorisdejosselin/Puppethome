@@ -1,6 +1,7 @@
 # Add some things for Puppetmaster now only firewall
 class profile::puppet::puppetmaster (
-  $dir = '/home/admin/scripts/deployment/__main__.py'
+  $dir   = '/home/admin/scripts/deployment/__main__.py',
+  $dirsh = '/home/admin/scripts/deployment/deploy.sh'
 ){
   firewall { '001 Allow inbound SSH':
     dport  => 22,
