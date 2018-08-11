@@ -77,5 +77,4 @@ classes:
     compose_file => '/mnt/data/compose/docker-compose.yaml',
     require      => [Class['docker'], File['/tmp/docker-compose.yaml']],
   }
-  }
 }
