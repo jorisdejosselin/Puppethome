@@ -47,22 +47,6 @@ classes:
     ensure      =>  latest,
     docker_file =>  '/mnt/data/dockerfiles/pythonwebserv_back/Dockerfile'
   }
-  # docker::services {'front':
-  #   create       => true,
-  #   service_name => 'front',
-  #   image        => 'pythonwebserv_front',
-  #   publish      => '80:80',
-  #   replicas     => '2',
-  #   extra_params =>  ['--hostname front.test.local','--dns-search test.local','--network internal']
-  # }
-  # docker::services {'back':
-  #   create       => true,
-  #   service_name => 'back',
-  #   image        => 'pythonwebserv_back',
-  #   publish      => '8080',
-  #   replicas     => '2',
-  #   extra_params =>  ['--hostname back.test.local','--dns-search test.local','--network internal']
-  # }
   file { '/mnt/data/compose/docker-compose.yaml':
     ensure  => 'present',
     content => template('profile/docker/docker-compose.yml.erb')
