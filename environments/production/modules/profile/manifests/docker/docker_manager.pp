@@ -73,6 +73,9 @@ classes:
   }
   docker_compose { '/tmp/docker-compose.yml':
     ensure => present,
-    scale  => 2,
+    scale  => {
+      'frontend' => 2,
+      'backend'  => 2,
+    }
   }
 }
