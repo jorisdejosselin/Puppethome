@@ -1,6 +1,5 @@
 require 'facter'
 require 'json'
-require 'docker'
 
 def interfaces
   Facter.value(:interfaces).split(',')

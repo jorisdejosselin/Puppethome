@@ -1,0 +1,12 @@
+version: '3'
+services:
+  frontend:
+    ports:
+    - "80:80"
+    container_name: frontend
+    image: <%= @imgfront %>
+  backend:
+    container_name: backend
+    ports:
+    - "80"
+    image: <%= @imgback %>

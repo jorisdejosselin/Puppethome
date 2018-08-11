@@ -13,7 +13,7 @@ class profile::puppet::puppetmaster (
     proto  => udp,
     action => accept,
   }
-  firewall { '003 Allow inbound SSH':
+  firewall { '003 Allow Puppet access':
     dport  => 8140,
     proto  => tcp,
     action => accept,
@@ -37,13 +37,13 @@ class profile::puppet::puppetmaster (
       group   => 'root',
       content => template('profile/puppetmaster/deploy.service.erb'),
     }
-  file { '/home/admin/scripts/deployment/deploy.sh':
+  file { "${dirsh}":
       mode    => '0644',
       owner   => 'root',
       group   => 'root',
       content => template('profile/puppetmaster/deploy.sh.erb'),
     }
-  file { '/home/admin/scripts/deployment/__main__.py':
+  file { "${dir}":
       mode    => '0644',
       owner   => 'root',
       group   => 'root',

@@ -1,5 +1,7 @@
 class profile::docker::docker_manager (
-    $ipaddress    = $::ipaddress
+    $ipaddress    = $::ipaddress,
+    $imgfront     = 'pythonwebserv_front',
+    $imgback      = 'pythonwebserv_back',
   ){
   require profile::base::base_linux
   firewall { '100 allow docker worker access':
@@ -34,40 +36,45 @@ classes:
   docker_network { 'internal':
     ensure  => present
   }
-  docker::image { 'pythonwebserv_front':
+  docker::image { "${imgfront}":
     ensure      =>  latest,
     docker_file =>  '/mnt/data/dockerfiles/pythonwebserv_front/Dockerfile'
   }
-  docker::image { 'pythonwebserv_back':
+  docker::image { "${imgback}":
     ensure      =>  latest,
     docker_file =>  '/mnt/data/dockerfiles/pythonwebserv_back/Dockerfile'
   }
-  docker::services {'front':
-    create       => true,
-    service_name => 'front',
-    image        => 'pythonwebserv_front',
-    publish      => '80:80',
-    replicas     => '2',
-    extra_params =>  ['--hostname front.test.local','--dns-search test.local','--network internal']
-  }
-  docker::services {'back':
-    create       => true,
-    service_name => 'back',
-    image        => 'pythonwebserv_back',
-    publish      => '8080',
-    replicas     => '2',
-    extra_params =>  ['--hostname back.test.local','--dns-search test.local','--network internal']
-  }
-  # docker::run {'registry':
-    # ensure				=>	absent,
-    # username			=>	'puppet',
-    # expose				=>	'5000:5000',
-    # image				=>	'registry',
-    # extra_parameters	=>	['--password Test2018']
+  # docker::services {'front':
+  #   create       => true,
+  #   service_name => 'front',
+  #   image        => 'pythonwebserv_front',
+  #   publish      => '80:80',
+  #   replicas     => '2',
+  #   extra_params =>  ['--hostname front.test.local','--dns-search test.local','--network internal']
   # }
-  # docker::registry { 'dockermanager:5000':
-    # ensure	 =>	absent,
-    # username => 'puppet',
-    # password => 'test2018',
+  # docker::services {'back':
+  #   create       => true,
+  #   service_name => 'back',
+  #   image        => 'pythonwebserv_back',
+  #   publish      => '8080',
+  #   replicas     => '2',
+  #   extra_params =>  ['--hostname back.test.local','--dns-search test.local','--network internal']
   # }
+  file { '/mnt/data/compose/docker-compose.yaml':
+    ensure  => 'present',
+    content => template('profile/docker/docker-compose.yml.erb')
+  }
+  class {'docker::compose':
+    ensure  => present,
+    version => '1.9.0',
+  }
+  docker_compose { '/tmp/docker-compose.yml':
+    ensure  => present,
+  }
+  docker::stack { 'webapp':
+    ensure       => present,
+    stack_name   => 'webapp',
+    compose_file => '/mnt/data/compose/docker-compose.yaml',
+    require      => File['/mnt/data/compose/docker-compose.yaml'],
+  }
 }
