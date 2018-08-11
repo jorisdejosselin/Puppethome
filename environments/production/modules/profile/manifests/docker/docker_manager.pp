@@ -71,7 +71,7 @@ classes:
     ensure  => present,
     version => '1.9.0',
   }
-  docker_compose { '/tmp/docker-compose.yml':
+  docker_compose { '/mnt/data/compose/docker-compose.yaml':
     ensure => present,
     scale  => {
       'frontend' => 2,
