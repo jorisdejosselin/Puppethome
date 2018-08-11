@@ -75,6 +75,6 @@ classes:
     ensure       => present,
     stack_name   => 'web',
     compose_file => '/mnt/data/compose/docker-compose.yaml',
-    require      => [Class['docker'], File['/tmp/docker-compose.yaml']],
+    require      => [Class['docker'], File['/mnt/data/compose/docker-compose.yaml']],
   }
 }
