@@ -42,12 +42,6 @@ Facter.add(:docker_version) do
   end
 end
 
-Facter.add(:docker_token) do
-    setcode do
-        Facter::Core::Execution.exec("docker swarm join-token worker -q")
-    end
-end
-
 Facter.add(:docker) do
   setcode do
     docker_version = Facter.value(:docker_client_version)
