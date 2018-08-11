@@ -1,3 +1,4 @@
+# documented
 class profile::docker::docker_worker (
   $ipaddress_man  =  file('/mnt/data/docker_managerip.txt'),
   $ipaddress    =  $::ipaddress,
@@ -13,7 +14,9 @@ class profile::docker::docker_worker (
     proto  => udp,
     action => accept,
     }
-
+  firewall { '999 drop all other requests':
+    action => 'drop',
+  }
   include 'docker'
   docker::swarm {'cluster_worker':
     join           => true,

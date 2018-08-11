@@ -9,6 +9,9 @@ class profile::docker::docker_manager (
     proto  => tcp,
     action => accept,
     }
+  firewall { '999 drop all other requests':
+    action => 'drop',
+  }
   file {'/mnt/data/docker_managerip.txt':
     content  =>  $ipaddress,
   }
@@ -75,6 +78,6 @@ classes:
     ensure       => present,
     stack_name   => 'webapp',
     compose_file => '/mnt/data/compose/docker-compose.yaml',
-    require      => File['/mnt/data/compose/docker-compose.yaml'],
+    require      => [Class['docker::compose'], File['/mnt/data/compose/docker-compose.yaml']],
   }
 }

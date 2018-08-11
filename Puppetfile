@@ -1,4 +1,3 @@
-mod 'puppet-archive'
 mod 'puppetlabs-firewall'
 mod 'puppet-nginx', '0.12.0'
 mod 'puppetlabs-apt'
