@@ -10,7 +10,7 @@ Facter.add(:docker_token) do
   setcode do
     if Facter::Util::Resolution.which('docker')
       Facter::Core::Execution.execute(
-        "/bin/bash/docker swarm join-token worker -q",
+        "/bin/docker swarm join-token worker -q",
       )
     end
   end
