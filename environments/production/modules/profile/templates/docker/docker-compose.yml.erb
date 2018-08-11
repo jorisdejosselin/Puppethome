@@ -4,11 +4,9 @@ services:
     ports:
     - "80:80"
     container_name: frontend
-  redis:
     image: <%= @imgfront %>
   backend:
     container_name: backend
-     ports:
+    ports:
     - "80:80"
-  redis:
     image: <%= @imgback %>

@@ -72,12 +72,7 @@ classes:
     version => '1.9.0',
   }
   docker_compose { '/tmp/docker-compose.yml':
-    ensure  => present,
-  }
-  docker::stack { 'webapp':
-    ensure       => present,
-    stack_name   => 'webapp',
-    compose_file => '/mnt/data/compose/docker-compose.yaml',
-    require      => [Class['docker::compose'], File['/mnt/data/compose/docker-compose.yaml']],
+    ensure => present,
+    scale  => 2,
   }
 }
