@@ -71,11 +71,11 @@ classes:
     ensure  => present,
     version => '1.9.0',
   }
-  docker_compose { '/mnt/data/compose/docker-compose.yaml':
-    ensure => present,
-    scale  => {
-      'frontend' => 2,
-      'backend'  => 2,
-    }
+  docker::stack { 'web':
+    ensure       => present,
+    stack_name   => 'web',
+    compose_file => '/mnt/data/compose/docker-compose.yaml',
+    require      => [Class['docker'], File['/tmp/docker-compose.yaml']],
+  }
   }
 }
