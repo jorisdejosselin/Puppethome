@@ -45,18 +45,18 @@ classes:
     ensure      =>  latest,
     docker_file =>  '/mnt/data/dockerfiles/pythonwebserv_back/Dockerfile',
   }
-  # file { '/mnt/data/compose/docker-compose.yaml':
-  #   ensure  => 'present',
-  #   content => template('profile/docker/docker-compose.yml.erb'),
-  # }
-  # class {'docker::compose':
-  #   ensure  => present,
-  #   version => '1.9.0',
-  # }
-  # docker::stack { 'web':
-  #   ensure       => present,
-  #   stack_name   => 'web',
-  #   compose_file => '/mnt/data/compose/docker-compose.yaml',
-  #   require      => [Class['docker'], File['/mnt/data/compose/docker-compose.yaml']],
-  # }
+  file { '/mnt/data/compose/docker-compose.yaml':
+    ensure  => 'present',
+    content => template('profile/docker/docker-compose.yml.erb'),
+  }
+  class {'docker::compose':
+    ensure  => present,
+    version => '1.9.0',
+  }
+  docker::stack { 'web':
+    ensure       => present,
+    stack_name   => 'web',
+    compose_file => '/mnt/data/compose/docker-compose.yaml',
+    require      => [Class['docker'], File['/mnt/data/compose/docker-compose.yaml']],
+  }
 }
