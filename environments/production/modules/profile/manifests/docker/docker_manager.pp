@@ -39,11 +39,11 @@ classes:
   docker_network { 'internal':
     ensure  => present
   }
-  docker::image { "${imgfront}":
+  docker::image { $imgfront:
     ensure      =>  latest,
     docker_file =>  '/mnt/data/dockerfiles/pythonwebserv_front/Dockerfile'
   }
-  docker::image { "${imgback}":
+  docker::image { $imgback:
     ensure      =>  latest,
     docker_file =>  '/mnt/data/dockerfiles/pythonwebserv_back/Dockerfile'
   }
