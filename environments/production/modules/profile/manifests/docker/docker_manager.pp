@@ -24,19 +24,19 @@ class profile::docker::docker_manager (
 classes:
  - profile::base::base_linux"
   }
-  # file {'/mnt/data/makehieranode.sh':
-  #   ensure  =>  'present',
-  #   content =>  "sshpass -p 'Test2018!' scp -r /home/joris/scripts/basehiera.yaml root@puppet:/etc/puppetlabs/code/environments/production/data/nodes/$(hostname).yaml
-  #   ",
-  #   mode    =>  '0700',
-  # }
+  file {'/mnt/data/makehieranode.sh':
+    ensure  =>  'present',
+    content =>  "sshpass -p 'Test2018!' scp -r /home/joris/scripts/basehiera.yaml root@puppet:/etc/puppetlabs/code/environments/production/data/nodes/$(hostname).yaml
+    ",
+    mode    =>  '0700',
+  }
 
-  # include 'docker'
-  # docker::swarm {'cluster_manager':
-  #   init           => true,
-  #   advertise_addr => $ipaddress,
-  #   listen_addr    => $ipaddress,
-  # }
+  include 'docker'
+  docker::swarm {'cluster_manager':
+    init           => true,
+    advertise_addr => $ipaddress,
+    listen_addr    => $ipaddress,
+  }
   # docker_network { 'internal':
   #   ensure  => present
   # }
