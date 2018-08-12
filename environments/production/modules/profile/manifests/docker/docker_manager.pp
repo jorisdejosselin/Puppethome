@@ -38,7 +38,7 @@ classes:
     listen_addr    => $ipaddress,
   }
   docker_network { 'internal':
-    ensure  => present
+    ensure  => present,
   }
   # docker::image { $imgfront:
   #   ensure      =>  latest,
