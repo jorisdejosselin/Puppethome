@@ -1,7 +1,7 @@
 class profile::docker::docker_manager (
     $ipaddress    = $::ipaddress,
     $imgfront     = 'pythonwebserv_front',
-    $imgback      = 'pythonwebserv_back',
+    $imgback      = 'pythonwebserv_back'
   ){
   require profile::base::base_linux
   firewall { '100 allow docker worker access':
@@ -25,8 +25,7 @@ classes:
   }
   file {'/mnt/data/makehieranode.sh':
     ensure  =>  'present',
-    content =>  "sshpass -p 'Test2018!' scp -r /home/joris/scripts/basehiera.yaml root@puppet:/etc/puppetlabs/code/environments/production/data/nodes/$(hostname).yaml
-					",
+    content =>  "sshpass -p 'Test2018!' scp -r /home/joris/scripts/basehiera.yaml root@puppet:/etc/puppetlabs/code/environments/production/data/nodes/$(hostname).yaml",
     mode    =>  '0700'
   }
 
@@ -39,11 +38,11 @@ classes:
   docker_network { 'internal':
     ensure  => present
   }
-  docker::image { 'pythonwebserv_front':
+  docker::image { $imgfront:
     ensure      =>  latest,
     docker_file =>  '/mnt/data/dockerfiles/pythonwebserv_front/Dockerfile'
   }
-  docker::image { 'pythonwebserv_back':
+  docker::image { $imgback :
     ensure      =>  latest,
     docker_file =>  '/mnt/data/dockerfiles/pythonwebserv_back/Dockerfile'
   }
