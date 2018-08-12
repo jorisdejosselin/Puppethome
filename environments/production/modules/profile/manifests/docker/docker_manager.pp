@@ -1,3 +1,4 @@
+#
 class profile::docker::docker_manager (
     $ipaddress    = $::ipaddress,
     $imgfront     = 'pythonwebserv_front',
@@ -25,7 +26,8 @@ classes:
   }
   file {'/mnt/data/makehieranode.sh':
     ensure  =>  'present',
-    content =>  "sshpass -p 'Test2018!' scp -r /home/joris/scripts/basehiera.yaml root@puppet:/etc/puppetlabs/code/environments/production/data/nodes/$(hostname).yaml",
+    content =>  "sshpass -p 'Test2018!' scp -r /home/joris/scripts/basehiera.yaml root@puppet:/etc/puppetlabs/code/environments/production/data/nodes/$(hostname).yaml
+    ",
     mode    =>  '0700'
   }
 
@@ -42,7 +44,7 @@ classes:
     ensure      =>  latest,
     docker_file =>  '/mnt/data/dockerfiles/pythonwebserv_front/Dockerfile'
   }
-  docker::image { $imgback :
+  docker::image { $imgback:
     ensure      =>  latest,
     docker_file =>  '/mnt/data/dockerfiles/pythonwebserv_back/Dockerfile'
   }
