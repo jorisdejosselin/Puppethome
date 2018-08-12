@@ -31,35 +31,35 @@ classes:
   #   mode    =>  '0700',
   # }
 
-  include 'docker'
-  docker::swarm {'cluster_manager':
-    init           => true,
-    advertise_addr => $ipaddress,
-    listen_addr    => $ipaddress,
-  }
-  docker_network { 'internal':
-    ensure  => present
-  }
+  # include 'docker'
+  # docker::swarm {'cluster_manager':
+  #   init           => true,
+  #   advertise_addr => $ipaddress,
+  #   listen_addr    => $ipaddress,
+  # }
+  # docker_network { 'internal':
+  #   ensure  => present
+  # }
   # docker::image { $imgfront:
   #   ensure      =>  latest,
   #   docker_file =>  '/mnt/data/dockerfiles/pythonwebserv_front/Dockerfile',
   # }
-  docker::image { $imgback:
-    ensure      =>  latest,
-    docker_file =>  '/mnt/data/dockerfiles/pythonwebserv_back/Dockerfile',
-  }
-  file { '/mnt/data/compose/docker-compose.yaml':
-    ensure  => 'present',
-    content => template('profile/docker/docker-compose.yml.erb'),
-  }
-  class {'docker::compose':
-    ensure  => present,
-    version => '1.9.0',
-  }
-  docker::stack { 'web':
-    ensure       => present,
-    stack_name   => 'web',
-    compose_file => '/mnt/data/compose/docker-compose.yaml',
-    require      => [Class['docker'], File['/mnt/data/compose/docker-compose.yaml']],
-  }
+  # docker::image { $imgback:
+  #   ensure      =>  latest,
+  #   docker_file =>  '/mnt/data/dockerfiles/pythonwebserv_back/Dockerfile',
+  # }
+  # file { '/mnt/data/compose/docker-compose.yaml':
+  #   ensure  => 'present',
+  #   content => template('profile/docker/docker-compose.yml.erb'),
+  # }
+  # class {'docker::compose':
+  #   ensure  => present,
+  #   version => '1.9.0',
+  # }
+  # docker::stack { 'web':
+  #   ensure       => present,
+  #   stack_name   => 'web',
+  #   compose_file => '/mnt/data/compose/docker-compose.yaml',
+  #   require      => [Class['docker'], File['/mnt/data/compose/docker-compose.yaml']],
+  # }
 }
