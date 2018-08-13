@@ -37,12 +37,20 @@ classes:
     advertise_addr => $ipaddress,
     listen_addr    => $ipaddress,
   }
+  file { '/mnt/data/dockerfiles/pythonwebserv_front/Dockerfile':
+    ensure  => 'present',
+    content => template('/profile/docker/docker_file/pythonwebserv_front.erb')
+  }
+  file { '/mnt/data/dockerfiles/pythonwebserv_back/Dockerfile':
+    ensure  => 'present',
+    content => template('/profile/docker/docker_file/pythonwebserv_back.erb')
+  }
   docker::image { $imgfront:
-    ensure      =>  latest,
+    ensure      =>  'latest',
     docker_file =>  '/mnt/data/dockerfiles/pythonwebserv_front/Dockerfile',
   }
   docker::image { $imgback:
-    ensure      =>  latest,
+    ensure      =>  'latest',
     docker_file =>  '/mnt/data/dockerfiles/pythonwebserv_back/Dockerfile',
   }
   file { '/mnt/data/compose/docker-compose.yaml':
