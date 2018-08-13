@@ -23,7 +23,7 @@ class profile::base::base_linux (
     owner   => root,
     group   => root,
     mode    => '0644',
-    content => 'username=puppet\npassword=Test2018!\ndomain=alien\n',
+    content => template('profile/base/sambacredentialsfile.erb')
   }
   if $facts[os][family] == 'Redhat' {
     package { $pack_rhel:
