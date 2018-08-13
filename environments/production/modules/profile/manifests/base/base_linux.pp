@@ -23,7 +23,7 @@ class profile::base::base_linux (
     owner   => root,
     group   => root,
     mode    => '0644',
-    content => 'user=puppet\npass=Test2018!\ndomain=alien',
+    content => 'username=puppet\npassword=Test2018!\ndomain=alien\n',
   }
   if $facts[os][family] == 'Redhat' {
     package { $pack_rhel:
@@ -33,12 +33,12 @@ class profile::base::base_linux (
       ensure   =>  present,
       provider =>  'yum',
     } ~> mount {'/mnt/data':
-    ensure  => 'mounted',
-    device  => '//alien/puppetshare',
-    atboot  => true,
-    fstype  => 'cifs',
-    options => 'auto,credentials=/securedir/.sambacredentialsfile',
-    require => [File['/securedir/.sambacredentialsfile'],File['/mnt/data']]
+      ensure  => 'mounted',
+      device  => '//alien/puppetshare',
+      atboot  => true,
+      fstype  => 'cifs',
+      options => 'auto,credentials=/securedir/.sambacredentialsfile',
+      require => [File['/securedir/.sambacredentialsfile'],File['/mnt/data']]
   }
   }
   if $facts[os][family] == 'Debian' {
