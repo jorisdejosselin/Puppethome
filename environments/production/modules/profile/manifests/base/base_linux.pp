@@ -23,7 +23,7 @@ class profile::base::base_linux (
     owner   => root,
     group   => root,
     mode    => '0644',
-    content =>  'user=puppet\npass=Test2018!\ndomain=alien\n',
+    content => 'user=puppet\npass=Test2018!\ndomain=alien',
   }
   if $facts[os][family] == 'Redhat' {
     package { $pack_rhel:
