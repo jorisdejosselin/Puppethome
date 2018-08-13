@@ -39,11 +39,11 @@ classes:
   }
   file { '/mnt/data/dockerfiles/pythonwebserv_front/Dockerfile':
     ensure  => 'present',
-    content => template('/profile/docker/pythonwebserv_front.erb')
+    content => template('profile/docker/docker_file/pythonwebserv_front.erb')
   }
   file { '/mnt/data/dockerfiles/pythonwebserv_back/Dockerfile':
     ensure  => 'present',
-    content => template('/profile/docker/pythonwebserv_back.erb')
+    content => template('profile/docker/docker_file/pythonwebserv_back.erb')
   }
   docker::image { $imgfront:
     ensure      =>  'latest',
