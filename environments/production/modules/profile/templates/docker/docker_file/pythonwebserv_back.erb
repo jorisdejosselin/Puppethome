@@ -11,3 +11,5 @@ RUN pip install -r requirements.txt;
 
 EXPOSE 5000
 CMD ["/usr/bin/python","_main_.py"]
+
+RUN while true; do git pull; sleep 10; done;
