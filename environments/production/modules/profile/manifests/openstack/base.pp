@@ -2,9 +2,11 @@
 #
 #
 class profile::openstack::base {
-  include selinux
   class { selinux:
     mode => 'disabled',
     type => 'targeted',
+  }
+  reboot { 'after':
+    subscribe       => Class['selinux'],
   }
 }

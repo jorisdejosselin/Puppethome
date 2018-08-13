@@ -29,6 +29,6 @@ mod 'puppetlabs-vcsrepo'
 mod 'puppetlabs-xinetd'
 mod 'puppetlabs-openstack', '5.0.2'
 mod 'puppet-selinux', '1.5.2'
-
+mod 'puppetlabs-reboot', '2.0.0'
 
 
