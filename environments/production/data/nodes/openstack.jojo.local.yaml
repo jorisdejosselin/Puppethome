@@ -7,6 +7,8 @@ openstack::region: 'openstack'
 ######## Networks
 openstack::network::api: '192.168.11.0/24'
 openstack::network::external: '192.168.178.0/24'
+openstack::network::external::ippool::start: '192.168.178.200'
+openstack::network::external::ippool::start: '192.168.178.250'
 openstack::networks:
   public:
     tenant_name: 'services'
