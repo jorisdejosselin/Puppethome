@@ -27,7 +27,9 @@ mod 'puppetlabs-tftp'
 mod 'puppetlabs-translate'
 mod 'puppetlabs-vcsrepo'
 mod 'puppetlabs-xinetd'
-mod 'puppetlabs-openstack', '5.0.2'
+mod 'puppetlabs-openstack',
+  :git => 'https://github.com/puppetlabs/puppetlabs-openstack.git',
+  :tag => '5.0.2'
 mod 'puppet-selinux', '1.5.2'
 mod 'puppetlabs-reboot', '2.0.0'
 mod 'puppetlabs-ntp', '7.2.0'
