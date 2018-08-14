@@ -6,7 +6,7 @@ class profile::openstack::base (
 ){
   file { '/etc/installopenstack1.sh':
     ensure  => 'present',
-    content => template('profile/openstack/installopenstack1.sh.erb'),
+    content => template('profile/openstack/installopenstack.sh.erb'),
   }
   service { $services:
     ensure => 'stopped',
@@ -28,6 +28,6 @@ class profile::openstack::base (
   }
   exec { '/etc/installopenstack1.sh':
     ensure  => 'present',
-    require => File['/etc/installopenstack1.sh'],
+    require => File['/etc/installopenstack.sh'],
   }
 }
