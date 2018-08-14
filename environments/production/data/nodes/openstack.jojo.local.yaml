@@ -14,6 +14,9 @@ openstack::network::external::ippool::start: 192.168.178.100
 openstack::network::external::ippool::end: 192.168.178.200
 openstack::network::external::gateway: 192.168.178.2
 openstack::network::external::dns: 192.168.178.2
+
+openstack::network::neutron::private: '10.0.0.0/24'
+
 openstack::networks:
   public:
     tenant_name: 'services'
