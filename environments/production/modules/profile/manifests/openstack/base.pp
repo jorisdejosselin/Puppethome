@@ -18,9 +18,7 @@ class profile::openstack::base (
     }
   }
   else {
-    notify { "No need to reboot selinux is ${::selinux}":
-      ensure => 'present'
-    }
+    notify { "No need to reboot selinux is ${::selinux}":  }
   }
   class { selinux:
     mode => 'disabled',
