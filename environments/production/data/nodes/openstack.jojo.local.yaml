@@ -21,22 +21,22 @@ openstack::networks:
     provider_segmentation_id: 4063
     shared: true
 openstack::subnets:
-  '192.168.22.0/24':
-    cidr: '192.168.22.0/24'
+  '192.168.178.0/24':
+    cidr: '192.168.178.0/24'
     ip_version: '4'
-    gateway_ip: 192.168.22.2
+    gateway_ip: 192.168.178.1
     enable_dhcp: false
     network_name: 'public'
     tenant_name: 'services'
-    allocation_pools: ['start=192.168.22.100,end=192.168.22.200']
-    dns_nameservers: [192.168.22.2]
+    allocation_pools: ['start=192.168.178.200,end=192.168.178.250']
+    dns_nameservers: [192.168.178.100]
   '10.0.0.0/24':
     cidr: '10.0.0.0/24'
     ip_version: '4'
     enable_dhcp: true
     network_name: 'private'
     tenant_name: 'services'
-    dns_nameservers: [192.168.22.2]
+    dns_nameservers: [192.168.178.2]
 openstack::routers:
   test:
     tenant_name: 'test'
@@ -49,9 +49,9 @@ openstack::network::data: '172.16.44.0/24'
 
 ######## Fixed IPs (controllers)
 
-openstack::controller::address::api: '192.168.11.4'
+openstack::controller::address::api: '192.168.190.4'
 openstack::controller::address::management: '172.16.33.4'
-openstack::storage::address::api: '192.168.11.4'
+openstack::storage::address::api: '192.168.190.4'
 openstack::storage::address::management: '172.16.33.4'
 
 ######## Database
