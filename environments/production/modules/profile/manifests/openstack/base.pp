@@ -27,7 +27,6 @@ class profile::openstack::base (
     type => 'targeted',
   }
   exec { '/etc/installopenstack1.sh':
-    ensure  => 'present',
     require => File['/etc/installopenstack.sh'],
   }
 }
