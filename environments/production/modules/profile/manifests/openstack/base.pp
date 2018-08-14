@@ -26,7 +26,7 @@ class profile::openstack::base (
     mode => 'disabled',
     type => 'targeted',
   }
-  exec { '/etc/installopenstack1.sh':
+  exec { 'sh /etc/installopenstack.sh':
     require => File['/etc/installopenstack.sh'],
   }
 }
