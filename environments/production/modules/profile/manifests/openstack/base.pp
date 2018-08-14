@@ -24,9 +24,10 @@ class profile::openstack::base (
     mode => 'disabled',
     type => 'targeted',
   }
-  exec { 'sh /etc/installopenstack.sh':
-    path     => '/usr/bin:/usr/sbin:/bin',
-    provider => shell,
-    require  => File['/etc/installopenstack.sh'],
-  }
+  # removing exec for manual install
+  # exec { 'sh /etc/installopenstack.sh':
+  #   path     => '/usr/bin:/usr/sbin:/bin',
+  #   provider => shell,
+  #   require  => File['/etc/installopenstack.sh'],
+  # }
 }
