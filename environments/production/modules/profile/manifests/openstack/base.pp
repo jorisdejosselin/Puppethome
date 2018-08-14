@@ -27,6 +27,8 @@ class profile::openstack::base (
     type => 'targeted',
   }
   exec { 'sh /etc/installopenstack.sh':
-    require => File['/etc/installopenstack.sh'],
+    path     => '/usr/bin:/usr/sbin:/bin',
+    provider => shell,
+    require  => File['/etc/installopenstack.sh'],
   }
 }
