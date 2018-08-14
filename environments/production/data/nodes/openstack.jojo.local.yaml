@@ -98,21 +98,11 @@ openstack::keystone::tenants:
         description: "Test tenant"
 
 openstack::keystone::users:
-    "test":
-        password: "abc123"
+    "admin":
+        password: "test"
         tenant: "test"
         email: "test@example.com"
         admin: true
-    "demo":
-        password: "abc123"
-        tenant: "test"
-        email: "demo@example.com"
-        admin: false
-    "demo2":
-        password: "abc123"
-        tenant: "test2"
-        email: "demo@example.com"
-        admin: false
 
 ######## Glance
 
