@@ -4,7 +4,7 @@
 class profile::openstack::base (
   $services = ['NetworkManager','firewalld'],
 ){
-  file { '/etc/installopenstack1.sh':
+  file { '/etc/installopenstack.sh':
     ensure  => 'present',
     content => template('profile/openstack/installopenstack.sh.erb'),
   }
