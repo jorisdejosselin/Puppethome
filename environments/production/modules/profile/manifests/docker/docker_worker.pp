@@ -2,7 +2,9 @@
 class profile::docker::docker_worker (
   $ipaddress_man  =  file('/mnt/data/docker_managerip.txt'),
   $ipaddress    =  $::ipaddress,
-  $token      =  file('/mnt/data/docker_token.txt')
+  $token      =  file('/mnt/data/docker_token.txt'),
+  $imgfront     = 'pythonwebserv_front',
+  $imgback      = 'pythonwebserv_back'
   ){
   firewall { '100 allow docker worker communication':
     dport  => [7946],
