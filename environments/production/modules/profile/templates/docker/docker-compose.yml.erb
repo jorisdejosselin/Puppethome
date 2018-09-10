@@ -12,7 +12,7 @@ services:
       replicas: 2
     container_name: backend
     ports:
-    - "5000"
+    - "5000:5000"
     image: <%= @imgback %>
   mongo:
     deploy:
