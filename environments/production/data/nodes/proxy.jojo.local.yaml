@@ -1,0 +1,3 @@
+---
+classes:
+  - role::nginx::nginx_base
