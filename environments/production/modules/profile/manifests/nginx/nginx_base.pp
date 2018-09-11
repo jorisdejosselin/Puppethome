@@ -10,12 +10,14 @@ class profile::nginx::nginx_base {
     package_source => 'nginx-mainline'
   }
   nginx::resource::server { "jorisdejosselindejong.nl":
-    ensure                => present,
-    listen_port           => 443,
-    proxy                 => 'http://192.168.178.101:3000',
-    ssl                   => true,
-    ssl_cert              => '/etc/letsencrypt/live/jorisdejosselindejong.nl/fullchain.pem',
-    ssl_key               => '/etc/letsencrypt/live/jorisdejosselindejong.nl/privkey.pem',
+    ensure              => present,
+    listen_port         => 443,
+    proxy               => 'http://192.168.178.101:3000',
+    ssl                 => true,
+    index_files         => undef,
+    ssl_cert            => '/etc/letsencrypt/live/jorisdejosselindejong.nl/fullchain.pem',
+    ssl_key             => '/etc/letsencrypt/live/jorisdejosselindejong.nl/privkey.pem',
+    location_cfg_append => { 'rewrite' => '^ https://$server_name$request_uri? permanent' },
   }
   nginx::resource::server { "owncloud.jorisdejosselindejong.nl":
     ensure                => present,
@@ -24,6 +26,7 @@ class profile::nginx::nginx_base {
     ssl                   => true,
     ssl_cert              => '/etc/letsencrypt/live/jorisdejosselindejong.nl/fullchain.pem',
     ssl_key               => '/etc/letsencrypt/live/jorisdejosselindejong.nl/privkey.pem',
+    location_cfg_append => { 'rewrite' => '^ https://$server_name$request_uri? permanent' },
   }
   nginx::resource::server { "monitoring.jorisdejosselindejong.nl":
     ensure                => present,
@@ -32,6 +35,7 @@ class profile::nginx::nginx_base {
     ssl                   => true,
     ssl_cert              => '/etc/letsencrypt/live/jorisdejosselindejong.nl/fullchain.pem',
     ssl_key               => '/etc/letsencrypt/live/jorisdejosselindejong.nl/privkey.pem',
+    location_cfg_append => { 'rewrite' => '^ https://$server_name$request_uri? permanent' },
   }
   nginx::resource::upstream { 'cloud':
   members => [
@@ -46,6 +50,7 @@ class profile::nginx::nginx_base {
     ssl                   => true,
     ssl_cert              => '/etc/letsencrypt/live/jorisdejosselindejong.nl/fullchain.pem',
     ssl_key               => '/etc/letsencrypt/live/jorisdejosselindejong.nl/privkey.pem',
+    location_cfg_append => { 'rewrite' => '^ https://$server_name$request_uri? permanent' },
   }
   nginx::resource::server { "joict.nl":
     ensure                => present,
