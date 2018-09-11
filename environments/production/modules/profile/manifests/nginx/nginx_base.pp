@@ -50,6 +50,7 @@ class profile::nginx::nginx_base {
   nginx::resource::server { "joict.nl":
     ensure                => present,
     listen_port           => 443,
+    index_files           => undef,
     proxy                 => 'http://192.168.178.101:3000',
     ssl                   => true,
     ssl_cert              => '/etc/letsencrypt/live/joict.nl/fullchain.pem',
