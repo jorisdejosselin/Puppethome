@@ -33,5 +33,5 @@ mod 'puppetlabs-openstack',
 mod 'puppet-selinux', '1.5.2'
 mod 'puppetlabs-reboot', '2.0.0'
 mod 'puppetlabs-ntp', '7.2.0'
-
+mod 'puppet-gitlab', '2.1.0'
 
