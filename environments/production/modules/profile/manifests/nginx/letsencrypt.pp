@@ -20,12 +20,12 @@ class profile::nginx::letsencrypt {
   #   options => 'auto,credentials=/securedir/.sambacredentialsfilenginx',
   #   require => [File['/securedir/.sambacredentialsfilenginx'],File['/mnt/nginx']]
   # }
-  letsencrypt::certonly{ 'domains':
-    domains              => ['router.joict.nl', 'mail.jorisdejosselindejong.nl'],
-    manage_cron          => false,
-    cron_before_command  => 'sshpass -p "Test2018!" ssh root@192.168.178.1 && service nginx stop',
-    cron_success_command => 'sshpass -p "Test2018!" ssh root@192.168.178.1 && /bin/systemctl reload nginx.service',
-    suppress_cron_output => true,
-    # require              => Mount['/mnt/nginx'],
-  }
+  # letsencrypt::certonly{ 'domains':
+  #   domains              => ['router.joict.nl', 'mail.jorisdejosselindejong.nl'],
+  #   manage_cron          => false,
+  #   cron_before_command  => 'sshpass -p "Test2018!" ssh root@192.168.178.1 && service nginx stop',
+  #   cron_success_command => 'sshpass -p "Test2018!" ssh root@192.168.178.1 && /bin/systemctl reload nginx.service',
+  #   suppress_cron_output => true,
+  #   # require              => Mount['/mnt/nginx'],
+  # }
 }
