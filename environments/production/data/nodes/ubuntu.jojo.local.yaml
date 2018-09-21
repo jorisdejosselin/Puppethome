@@ -1,6 +1,4 @@
 ---
 classes:
-    - role::nginx::nginx_base
-    - role::nginx::nginx_ddns
     - role::netdata::netdata_master
     - profile::nginx::letsencrypt
