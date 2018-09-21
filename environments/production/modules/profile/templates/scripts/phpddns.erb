@@ -101,6 +101,7 @@ while (true) {
                 $dnsEntries[] = new Transip_DnsEntry('server', 86400, Transip_DnsEntry::TYPE_A, $ipAddress);
                 $dnsEntries[] = new Transip_DnsEntry('www', 86400, Transip_DnsEntry::TYPE_A, $ipAddress);
                 $dnsEntries[] = new Transip_DnsEntry('router', 86400, Transip_DnsEntry::TYPE_A, $ipAddress);
+                $dnsEntries[] = new Transip_DnsEntry('git', 86400, Transip_DnsEntry::TYPE_A, $ipAddress);
 
                 // Andere type records updaten? (check de TransIP API documentatie!)
                 // https://api.transip.nl/docs/transip.nl/package-Transip.html?_ga=2.18506942.664913172.1503732730-365087631.1503639322
