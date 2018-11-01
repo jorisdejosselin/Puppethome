@@ -1,12 +1,1 @@
----
-classes:
-  - role::gitlab::gitlab
 
-gitlab::external_url: 'puppet101.jojo.local'
-gitlab::gitlab_rails:
-  time_zone: 'UTC'
-  gitlab_email_enabled: false
-  gitlab_default_theme: 4
-  gitlab_email_display_name: 'Gitlab'
-gitlab::sidekiq:
-  shutdown_timeout: 5
