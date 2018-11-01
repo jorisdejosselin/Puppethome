@@ -7,7 +7,4 @@ class profile::netdata::netdata_master {
     }
     netdata::stream {'66f2bdc5-58b2-4812-b485-9d3f47f08109': }
   }
-  if $::kernel != 'linux'{
-    notice("netdata on ${::osfamily} is not supported")
-  }
 }
