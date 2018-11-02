@@ -1,3 +1,4 @@
 ---
 classes:
  - role::base::base_linux
+ - profile::gitlab::gitlab
