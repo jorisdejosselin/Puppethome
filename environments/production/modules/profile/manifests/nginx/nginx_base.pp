@@ -7,7 +7,7 @@ class profile::nginx::nginx_base {
       }
   file { '/etc/nginx/nginx.conf':
     ensure => file,
-    source => template('profile/nginx/nginx.conf.erb');
+    content => template('profile/nginx/nginx.conf.erb');
   }
   package { 'certbot':
     ensure => installed,
