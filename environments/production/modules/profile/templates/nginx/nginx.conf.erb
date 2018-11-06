@@ -1,11 +1,3 @@
-ssl_certificate /etc/letsencrypt/live/jorisdejosselindejong.nl/fullchain.pem;
-ssl_certificate_key /etc/letsencrypt/live/jorisdejosselindejong.nl/privkey.pem;
-ssl_certificate /etc/letsencrypt/live/joict.nl/fullchain.pem;
-ssl_certificate_key /etc/letsencrypt/live/joict.nl/privkey.pem;
-include /etc/letsencrypt/options-ssl-nginx.conf;
-ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
-
-
 server {
         if ($host = jorisdejosselindejong.nl) {
                 return 301 https://$host$request_uri;
