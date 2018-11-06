@@ -1,169 +1,171 @@
-server {
-        if ($host = jorisdejosselindejong.nl) {
-                return 301 https://$host$request_uri;
-        }
+http {
+	server {
+					if ($host = jorisdejosselindejong.nl) {
+									return 301 https://$host$request_uri;
+					}
 
-        if ($host = owncloud.jorisdejosselindejong.nl) {
-                return 301 https://$host$request_uri;
-        }
+					if ($host = owncloud.jorisdejosselindejong.nl) {
+									return 301 https://$host$request_uri;
+					}
 
-        if ($host = mail.jorisdejosselindejong.nl) {
-                return 301 https://$host$request_uri;
-        }
+					if ($host = mail.jorisdejosselindejong.nl) {
+									return 301 https://$host$request_uri;
+					}
 
-        if ($host = monitoring.jorisdejosselindejong.nl) {
-                return 301 https://$host$request_uri;
-        }
+					if ($host = monitoring.jorisdejosselindejong.nl) {
+									return 301 https://$host$request_uri;
+					}
 
-        if ($host = www.jorisdejosselindejong.nl) {
-                return 301 https://$host$request_uri;
-        }
+					if ($host = www.jorisdejosselindejong.nl) {
+									return 301 https://$host$request_uri;
+					}
 
-        if ($host = joict.nl) {
-                return 301 https://$host$request_uri;
-        }
+					if ($host = joict.nl) {
+									return 301 https://$host$request_uri;
+					}
 
-        if ($host = owncloud.joict.nl) {
-                return 301 https://$host$request_uri;
-        }
+					if ($host = owncloud.joict.nl) {
+									return 301 https://$host$request_uri;
+					}
 
-        if ($host = mail.joict.nl) {
-                return 301 https://$host$request_uri;
-        }
+					if ($host = mail.joict.nl) {
+									return 301 https://$host$request_uri;
+					}
 
-        if ($host = monitoring.joict.nl) {
-                return 301 https://$host$request_uri;
-        }
+					if ($host = monitoring.joict.nl) {
+									return 301 https://$host$request_uri;
+					}
 
-        if ($host = router.joict.nl) {
-                return 301 https://$host$request_uri;
-        }
+					if ($host = router.joict.nl) {
+									return 301 https://$host$request_uri;
+					}
 
-        if ($host = cloud.joict.nl) {
-                return 301 http://$host$request_uri;
-        }
+					if ($host = cloud.joict.nl) {
+									return 301 http://$host$request_uri;
+					}
 
-        if ($host = git.joict.nl) {
-                return 301 https://$host$request_uri;
-        }
- }
-
-server {
-	# listen 443 ssl;
-	server_name jorisdejosselindejong.nl;
-	location / {
-		proxy_set_header   X-Forwarded-For $remote_addr;
-
-		proxy_set_header   Host $http_host;
-
-		proxy_pass         "http://127.0.0.1:3000";
+					if ($host = git.joict.nl) {
+									return 301 https://$host$request_uri;
+					}
 	}
 
-}
+	server {
+		# listen 443 ssl;
+		server_name jorisdejosselindejong.nl;
+		location / {
+			proxy_set_header   X-Forwarded-For $remote_addr;
 
-server {
-	listen 443 ssl;
-	server_name owncloud.jorisdejosselindejong.nl;
-	location / {
-		proxy_set_header   X-Forwarded-For $remote_addr;
+			proxy_set_header   Host $http_host;
 
-		proxy_set_header   Host $http_host;
+			proxy_pass         "http://127.0.0.1:3000";
+		}
 
-		proxy_pass         "http://127.0.0.1:60000";
-	}
-}
-
-server {
-	listen 443 ssl;
-	server_name mail.jorisdejosselindejong.nl;
-	location / {
-		proxy_set_header   X-Forwarded-For $remote_addr;
-
-		proxy_set_header   Host $http_host;
-
-		proxy_pass         "https://zimbra";
-	}
-}
-
-server{
-	listen 443 ssl;
-	server_name monitoring.jorisdejosselindejong.nl;
-	location / {
-		proxy_set_header   X-Forwarded-For $remote_addr;
-
-		proxy_set_header   Host $http_host;
-
-		proxy_pass         "http://ubuntu:19999";
-	}
-}
-
-server {
-	# listen 443 ssl;
-	server_name joict.nl;
-	location / {
-		proxy_set_header   X-Forwarded-For $remote_addr;
-
-		proxy_set_header   Host $http_host;
-
-		proxy_pass         "http://127.0.0.1:3000";
 	}
 
-}
+	server {
+		listen 443 ssl;
+		server_name owncloud.jorisdejosselindejong.nl;
+		location / {
+			proxy_set_header   X-Forwarded-For $remote_addr;
 
-server {
-	listen 443 ssl;
-	server_name owncloud.joict.nl;
-	location / {
-		proxy_set_header   X-Forwarded-For $remote_addr;
+			proxy_set_header   Host $http_host;
 
-		proxy_set_header   Host $http_host;
-
-		proxy_pass         "http://127.0.0.1:60000";
+			proxy_pass         "http://127.0.0.1:60000";
+		}
 	}
-}
 
-server {
-	listen 443 ssl;
-	server_name mail.joict.nl;
-	location / {
-		proxy_set_header   X-Forwarded-For $remote_addr;
+	server {
+		listen 443 ssl;
+		server_name mail.jorisdejosselindejong.nl;
+		location / {
+			proxy_set_header   X-Forwarded-For $remote_addr;
 
-		proxy_set_header   Host $http_host;
+			proxy_set_header   Host $http_host;
 
-		proxy_pass         "https://zimbra";
+			proxy_pass         "https://zimbra";
+		}
 	}
-}
 
-server{
-	listen 443 ssl;
-	server_name monitoring.joict.nl;
-	location / {
-		proxy_set_header   X-Forwarded-For $remote_addr;
+	server{
+		listen 443 ssl;
+		server_name monitoring.jorisdejosselindejong.nl;
+		location / {
+			proxy_set_header   X-Forwarded-For $remote_addr;
 
-		proxy_set_header   Host $http_host;
+			proxy_set_header   Host $http_host;
 
-		proxy_pass         "http://ubuntu:19999";
+			proxy_pass         "http://ubuntu:19999";
+		}
 	}
-}
 
-server{
-	listen 443 ssl;
-	server_name router.joict.nl;
-	location / {
-		proxy_set_header   X-Forwarded-For $remote_addr;
+	server {
+		# listen 443 ssl;
+		server_name joict.nl;
+		location / {
+			proxy_set_header   X-Forwarded-For $remote_addr;
 
-		proxy_set_header   Host $http_host;
+			proxy_set_header   Host $http_host;
 
-		proxy_pass         "http://ubuntu:19999";
+			proxy_pass         "http://127.0.0.1:3000";
+		}
+
 	}
-server{
-	listen 443 ssl;
-	server_name git.joict.nl;
-	location / {
-		proxy_set_header   X-Forwarded-For $remote_addr;
 
-		proxy_set_header   Host $http_host;
+	server {
+		listen 443 ssl;
+		server_name owncloud.joict.nl;
+		location / {
+			proxy_set_header   X-Forwarded-For $remote_addr;
 
-		proxy_pass         "http://ubuntu:19999";
+			proxy_set_header   Host $http_host;
+
+			proxy_pass         "http://127.0.0.1:60000";
+		}
+	}
+
+	server {
+		listen 443 ssl;
+		server_name mail.joict.nl;
+		location / {
+			proxy_set_header   X-Forwarded-For $remote_addr;
+
+			proxy_set_header   Host $http_host;
+
+			proxy_pass         "https://zimbra";
+		}
+	}
+
+	server{
+		listen 443 ssl;
+		server_name monitoring.joict.nl;
+		location / {
+			proxy_set_header   X-Forwarded-For $remote_addr;
+
+			proxy_set_header   Host $http_host;
+
+			proxy_pass         "http://ubuntu:19999";
+		}
+	}
+
+	server{
+		listen 443 ssl;
+		server_name router.joict.nl;
+		location / {
+			proxy_set_header   X-Forwarded-For $remote_addr;
+
+			proxy_set_header   Host $http_host;
+
+			proxy_pass         "http://ubuntu:19999";
+		}
+	server{
+		listen 443 ssl;
+		server_name git.joict.nl;
+		location / {
+			proxy_set_header   X-Forwarded-For $remote_addr;
+
+			proxy_set_header   Host $http_host;
+
+			proxy_pass         "http://ubuntu:19999";
+		}
 	}
 }
