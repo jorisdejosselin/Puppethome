@@ -35,7 +35,7 @@ http {
     # for more information.
     include /etc/nginx/conf.d/*.conf;
 
-    server {
+    <%# server {
         listen       80 default_server;
         listen       [::]:80 default_server;
         server_name  _;
@@ -53,7 +53,7 @@ http {
         error_page 500 502 503 504 /50x.html;
             location = /50x.html {
         }
-    }
+    } %>
 
 # Settings for a TLS enabled server.
 #
