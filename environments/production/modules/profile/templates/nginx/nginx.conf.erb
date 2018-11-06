@@ -7,36 +7,54 @@ ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
 
 server {
-	if ($host = jorisdejosselindejong.nl) {
-		return 301 https://$host$request_uri;
-	}
+        if ($host = jorisdejosselindejong.nl) {
+                return 301 https://$host$request_uri;
+        }
 
-	if ($host = owncloud.jorisdejosselindejong.nl) {
-		return 301 https://$host$request_uri;
-	}
+        if ($host = owncloud.jorisdejosselindejong.nl) {
+                return 301 https://$host$request_uri;
+        }
 
-	if ($host = mail.jorisdejosselindejong.nl) {
-		return 301 https://$host$request_uri;
-	}
+        if ($host = mail.jorisdejosselindejong.nl) {
+                return 301 https://$host$request_uri;
+        }
 
-	if ($host = monitoring.jorisdejosselindejong.nl) {
-		return 301 https://$host$request_uri;
-	}
-	if ($host = joict.nl) {
-		return 301 https://$host$request_uri;
-	}
+        if ($host = monitoring.jorisdejosselindejong.nl) {
+                return 301 https://$host$request_uri;
+        }
 
-	if ($host = owncloud.joict.nl) {
-		return 301 https://$host$request_uri;
-	}
+        if ($host = www.jorisdejosselindejong.nl) {
+                return 301 https://$host$request_uri;
+        }
 
-	if ($host = mail.joict.nl) {
-		return 301 https://$host$request_uri;
-	}
+        if ($host = joict.nl) {
+                return 301 https://$host$request_uri;
+        }
 
-	if ($host = monitoring.joict.nl) {
-		return 301 https://$host$request_uri;
-	}
+        if ($host = owncloud.joict.nl) {
+                return 301 https://$host$request_uri;
+        }
+
+        if ($host = mail.joict.nl) {
+                return 301 https://$host$request_uri;
+        }
+
+        if ($host = monitoring.joict.nl) {
+                return 301 https://$host$request_uri;
+        }
+
+        if ($host = router.joict.nl) {
+                return 301 https://$host$request_uri;
+        }
+
+        if ($host = cloud.joict.nl) {
+                return 301 http://$host$request_uri;
+        }
+
+        if ($host = git.joict.nl) {
+                return 301 https://$host$request_uri;
+        }
+
 
 server {
 	# listen 443 ssl;
@@ -139,6 +157,16 @@ server{
 server{
 	listen 443 ssl;
 	server_name router.joict.nl;
+	location / {
+		proxy_set_header   X-Forwarded-For $remote_addr;
+
+		proxy_set_header   Host $http_host;
+
+		proxy_pass         "http://ubuntu:19999";
+	}
+server{
+	listen 443 ssl;
+	server_name git.joict.nl;
 	location / {
 		proxy_set_header   X-Forwarded-For $remote_addr;
 
