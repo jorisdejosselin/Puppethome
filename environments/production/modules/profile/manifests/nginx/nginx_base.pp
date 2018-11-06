@@ -5,7 +5,7 @@ class profile::nginx::nginx_base {
     proto  => tcp,
     action => accept,
       }
-  file { '/etc/nginx/nginx.conf':
+  file { '/etc/nginx/sites-enabled/joorsite':
     ensure => file,
     content => template('profile/nginx/nginx.conf.erb');
   }
